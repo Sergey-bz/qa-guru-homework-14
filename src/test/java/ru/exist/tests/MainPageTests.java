@@ -1,5 +1,6 @@
 package ru.exist.tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import static io.qameta.allure.Allure.step;
 public class MainPageTests extends BaseTest {
 
     @Test
+    @DisplayName("Поиск по модели \"Skoda Kodiaq\"")
     public void skodaKodiaqSearchTest() {
         step("Открываем главную страницу", () -> open("/"));
 
@@ -26,6 +28,7 @@ public class MainPageTests extends BaseTest {
     }
 
     @Test
+    @DisplayName("Поиск по артикулу запчасти")
     public void searchByPartNumberTest() {
         step("Открываем главную страницу", () -> open("/"));
 
@@ -40,6 +43,7 @@ public class MainPageTests extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверка пунктов главного меню")
     public void catalogItemsTest() {
         step("Открываем главную страницу", () -> open("/"));
 
@@ -53,6 +57,7 @@ public class MainPageTests extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверка выпадающего меню \"Гараж\"")
     public void garageTest() {
         step("Открываем главную страницу", () -> open("/"));
 
@@ -65,6 +70,7 @@ public class MainPageTests extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверка пункта меню \"Автоточки\"")
     public void autoPointsTest() {
         step("Открываем главную страницу", () -> open("/"));
 

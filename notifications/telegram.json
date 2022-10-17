@@ -1,9 +1,9 @@
 {
   "base": {
-    "project": "${JOB_BASE_NAME}",
+    "project": "qa-guru-homework-14",
     "environment": "demo",
     "comment": "test notifications",
-    "reportLink": "${BUILD_URL}",
+    "reportLink": "",
     "language": "en",
     "messenger": "telegram",
     "allureFolder": "allure-report/",
