@@ -28,21 +28,6 @@ public class MainPageTests extends BaseTest {
     }
 
     @Test
-    @DisplayName("Поиск по артикулу запчасти")
-    public void searchByPartNumberTest() {
-        step("Открываем главную страницу", () -> open("/"));
-
-        String partNo = "212965-6";
-        step("Поиск запчасти по артикулу", () -> {
-            $("#pcode").setValue(partNo).pressEnter();
-        });
-
-        step("Проверяем, что в списке есть необходимая запчасть", () -> {
-            $("#priceBody").$(".partno").shouldHave(text(partNo));
-        });
-    }
-
-    @Test
     @DisplayName("Проверка пунктов главного меню")
     public void catalogItemsTest() {
         step("Открываем главную страницу", () -> open("/"));
