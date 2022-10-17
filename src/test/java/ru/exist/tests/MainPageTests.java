@@ -1,7 +1,5 @@
 package ru.exist.tests;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -17,8 +15,6 @@ public class MainPageTests extends BaseTest {
 
     @Test
     public void skodaKodiaqSearchTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Открываем главную страницу", () -> open("/"));
 
         step("Поиск по названию марки \"Skoda\"", () ->
@@ -31,14 +27,11 @@ public class MainPageTests extends BaseTest {
 
     @Test
     public void searchByPartNumberTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Открываем главную страницу", () -> open("/"));
 
         String partNo = "212965-6";
         step("Поиск запчасти по артикулу", () -> {
             $("#pcode").setValue(partNo).pressEnter();
-
         });
 
         step("Проверяем, что в списке есть необходимая запчасть", () -> {
@@ -48,14 +41,10 @@ public class MainPageTests extends BaseTest {
 
     @Test
     public void catalogItemsTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Открываем главную страницу", () -> open("/"));
 
-        step("Открываем пункт меню \"Каталоги\"", () -> {
-            $(".mainmenu").$(byTitle("Запчасти и аксессуары в каталогах")).click();
-
-        });
+        step("Открываем пункт меню \"Каталоги\"", () ->
+                $(".mainmenu").$(byTitle("Запчасти и аксессуары в каталогах")).click());
 
         step("Проверяем, что в каталогах есть все пункты", () -> {
             $$("#menutop a").should(containExactTextsCaseSensitive(
@@ -65,13 +54,10 @@ public class MainPageTests extends BaseTest {
 
     @Test
     public void garageTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Открываем главную страницу", () -> open("/"));
 
-        step("Открываем выпадающее меню \"Гараж\"", () -> {
-            $("#garageFloat").click();
-        });
+        step("Открываем выпадающее меню \"Гараж\"", () ->
+                $("#garageFloat").click());
 
         step("Проверяем, что необходимо выбрать ТС", () -> {
             $("#phCarInfo").shouldHave(text("Выберите транспортное средство"));
@@ -80,13 +66,10 @@ public class MainPageTests extends BaseTest {
 
     @Test
     public void autoPointsTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Открываем главную страницу", () -> open("/"));
 
-        step("Открываем пункт меню \"Автоточки\"", () -> {
-            $(".mainmenu").$(byTitle("Автоточки")).click();
-        });
+        step("Открываем пункт меню \"Автоточки\"", () ->
+                $(".mainmenu").$(byTitle("Автоточки")).click());
 
         step("Проверяем, что в списке есть все разделы", () -> {
             $$(".page-blocks a").should(containExactTextsCaseSensitive(
